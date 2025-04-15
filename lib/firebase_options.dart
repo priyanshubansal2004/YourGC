@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -29,18 +26,15 @@ class DefaultFirebaseOptions {
         return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
+          'DefaultFirebaseOptions have not been configured for macOS.',
         );
       case TargetPlatform.windows:
         throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
+          'DefaultFirebaseOptions have not been configured for Windows.',
         );
       case TargetPlatform.linux:
         throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
+          'DefaultFirebaseOptions have not been configured for Linux.',
         );
       default:
         throw UnsupportedError(
@@ -66,4 +60,13 @@ class DefaultFirebaseOptions {
     iosBundleId: 'com.example.chatApp',
   );
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyArELKATGlTOhittVHYafq2vyP8x6NIW7g',
+    authDomain: 'flutter-chat-app-fdc4b.firebaseapp.com',
+    projectId: 'flutter-chat-app-fdc4b',
+    storageBucket: 'flutter-chat-app-fdc4b.appspot.com',
+    messagingSenderId: '56561590022',
+    appId: '1:56561590022:web:1b886abc40e6cba6c94887',
+    measurementId: 'G-XYLH1CB8QY',
+  );
 }
